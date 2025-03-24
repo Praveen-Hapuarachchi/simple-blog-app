@@ -1,7 +1,8 @@
-// api-helper.js
+export const base_url = 'http://localhost:5000';
+
 export const signupUser = async (userData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
+      const response = await fetch(`${base_url}/api/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -16,11 +17,10 @@ export const signupUser = async (userData) => {
       return { result: 'There was an error signing up. Please try again later.', status: false };
     }
   };
-  
 
 export const loginUser = async (userData) => {
   try {
-    const response = await fetch('http://localhost:5000/api/auth/login', {
+    const response = await fetch(`${base_url}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
