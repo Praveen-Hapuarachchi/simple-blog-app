@@ -1,5 +1,5 @@
-//export const base_url = 'http://localhost:5000';
-export const base_url = 'http://68.183.83.217:5000';
+// export const base_url = 'http://localhost:5000';
+export const base_url = 'http://68.183.83.217'; // Use port 80 (nginx)
 
 export const signupUser = async (userData) => {
     try {
@@ -10,14 +10,14 @@ export const signupUser = async (userData) => {
         },
         body: JSON.stringify(userData),
       });
-  
+
       const result = await response.json();
       return { result, status: response.ok };
     } catch (error) {
       console.error('Error signing up:', error);
       return { result: 'There was an error signing up. Please try again later.', status: false };
     }
-  };
+};
 
 export const loginUser = async (userData) => {
   try {
