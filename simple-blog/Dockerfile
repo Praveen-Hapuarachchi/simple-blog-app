@@ -20,7 +20,10 @@ FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 
 # Remove the default Nginx configuration
-RUN rm -rf ./*
+RUN rm -rf /etc/nginx/conf.d/default.conf
+
+# Copy the custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy build folder to Nginx's public directory
 COPY --from=build /app/build .
@@ -28,4 +31,4 @@ COPY --from=build /app/build .
 # Expose the frontend port
 EXPOSE 80
 
-ENTRYPOINT  ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
