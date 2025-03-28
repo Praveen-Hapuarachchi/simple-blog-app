@@ -26,8 +26,7 @@ services:
     container_name: simple-blog-frontend-container
     depends_on:
       - simple-blog-backend
-    ports:
-      - "3000:80"
+    
 
   nginx:
     image: praveenlichchavi/nginx:latest
