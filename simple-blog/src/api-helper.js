@@ -1,5 +1,5 @@
 // export const base_url = 'http://localhost:5000';
-export const base_url = 'http://68.183.83.217'; // Use port 80 (nginx)
+// export const base_url = 'http://68.183.83.217'; // Use port 80 (nginx)
 
 export const signupUser = async (userData) => {
     try {
