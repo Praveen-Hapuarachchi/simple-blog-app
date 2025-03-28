@@ -26,9 +26,9 @@ services:
     container_name: simple-blog-frontend-container
     depends_on:
       - simple-blog-backend
-    # Ensure no ports mapping is present
-    # ports:
-    #   - "3000:80"
+    ## Ensure no ports mapping is present
+    ports:
+      - "3000:80"
 
   nginx:
     image: praveenlichchavi/nginx:latest
