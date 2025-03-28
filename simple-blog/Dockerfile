@@ -19,9 +19,6 @@ FROM nginx:alpine
 # Set the working directory
 WORKDIR /usr/share/nginx/html
 
-# Remove the default Nginx configuration
-RUN rm -rf /etc/nginx/conf.d/default.conf
-
 # Copy the custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
