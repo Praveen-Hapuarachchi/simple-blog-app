@@ -19,7 +19,7 @@ services:
     environment:
       - MONGO_URI=mongodb://mongo:27017/simple_blog_backend
     links:
-      - mongo 
+      - mongo
 
   simple-blog:
     image: praveenlichchavi/simple-blog:latest
@@ -28,7 +28,7 @@ services:
       - simple-blog-backend
     # Ensure no ports mapping is present
     # ports:
-    #   - "3000:80"   
+    #   - "3000:80"
 
   nginx:
     image: praveenlichchavi/nginx:latest
