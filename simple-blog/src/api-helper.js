@@ -1,9 +1,9 @@
 // export const base_url = 'http://localhost:5000';
-export const base_url = 'http://68.183.83.217:5000';
+export const base_url = 'http://68.183.83.217/api';
 
 export const signupUser = async (userData) => {
   try {
-    const response = await fetch(`${base_url}/api/auth/signup`, {
+    const response = await fetch(`${base_url}/auth/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export const signupUser = async (userData) => {
 
 export const loginUser = async (userData) => {
   try {
-    const response = await fetch(`${base_url}/api/auth/login`, {
+    const response = await fetch(`${base_url}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
