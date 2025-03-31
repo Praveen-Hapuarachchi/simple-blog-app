@@ -1,5 +1,5 @@
 // export const base_url = 'http://localhost:5000';
-export const base_url = 'http://68.183.83.217/api';
+export const base_url = 'http://159.89.175.60/api';
 
 export const signupUser = async (userData) => {
   try {
