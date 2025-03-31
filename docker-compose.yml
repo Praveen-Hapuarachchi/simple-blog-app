@@ -15,7 +15,7 @@ services:
     depends_on:
       - mongo
     ports:
-      - "5000:5000"
+      - "5000:5000"  # Keep this for debugging, but not required for production
     environment:
       - MONGO_URI=mongodb://mongo:27017/simple_blog_backend
     links:
@@ -26,9 +26,9 @@ services:
     container_name: simple-blog-frontend-container
     depends_on:
       - simple-blog-backend
-    ## Ensure no ports mapping is present
-    ports:
-      - "3000:80"
+    # Remove the ports mapping entirely
+    # ports:
+    #   - "3000:80"
 
   nginx:
     image: praveenlichchavi/nginx:latest
