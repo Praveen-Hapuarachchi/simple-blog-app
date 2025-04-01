@@ -6,6 +6,8 @@ services:
       - mongo_data:/data/db
 
   simple-blog-backend:
+    build:
+      context: ./simple-blog-backend
     image: praveenlichchavi/simple-blog-backend:latest
     container_name: simple-blog-backend-container
     depends_on:
@@ -14,12 +16,16 @@ services:
       - MONGO_URI=mongodb://mongo:27017/simple_blog_backend
 
   simple-blog:
+    build:
+      context: ./simple-blog
     image: praveenlichchavi/simple-blog:latest
     container_name: simple-blog-frontend-container
     depends_on:
       - simple-blog-backend
 
   nginx:
+    build:
+      context: ./nginx
     image: praveenlichchavi/nginx:latest
     container_name: simple-blog-nginx-container
     restart: always
