@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Box, TextField, Button, Typography, Container } from '@mui/material';
+import { Box, TextField, Button, Typography, Container, Fade } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import { loginUser } from '../api-helper'; // Import the login API helper
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../api-helper';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -15,73 +15,159 @@ function LoginForm() {
 
     if (status) {
       console.log('Login successful:', result);
-
-      // Store the token, first name, and last name in localStorage
       localStorage.setItem('jwtToken', result.token);
       localStorage.setItem('firstName', result.user.firstName);
       localStorage.setItem('lastName', result.user.lastName);
       localStorage.setItem('Id', result.user.id);
-
-      navigate('/welcome'); // Navigate to the WelcomePage on successful login
+      navigate('/welcome');
     } else {
       console.error('Login failed:', result);
-      alert(result.message || 'Login failed. Please check your credentials.'); // Show error to the user
+      alert(result.message || 'Login failed. Please check your credentials.');
     }
   };
 
   return (
-    <Container maxWidth="xs">
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          padding: 3,
-          boxShadow: 2,
-          borderRadius: 2,
-          backgroundColor: 'white',
-          marginTop: 10,
-          marginBottom: 3,
-        }}
-      >
-        <Typography variant="h5" gutterBottom>
-          Login
-        </Typography>
-        <form onSubmit={handleLogin}>
-          <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            label="Password"
-            type="password"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
+    <Container
+      maxWidth={false}
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #6e8efb 0%, #a777e3 100%)',
+        padding: 2,
+      }}
+    >
+      <Fade in timeout={1000}>
+        <Box
+          sx={{
+            width: '100%',
+            maxWidth: 400,
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            borderRadius: 3,
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+            padding: 4,
+            backdropFilter: 'blur(10px)',
+            transition: 'transform 0.3s ease-in-out',
+            '&:hover': {
+              transform: 'translateY(-5px)',
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+            },
+          }}
+        >
+          <Typography
+            variant="h4"
+            align="center"
+            gutterBottom
             sx={{
-              marginTop: 2,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              fontWeight: 700,
+              color: '#333',
+              letterSpacing: '0.5px',
+              mb: 3,
             }}
           >
-            <LoginIcon sx={{ marginRight: 1 }} />
-            Login
-          </Button>
-        </form>
-      </Box>
+            Welcome Back
+          </Typography>
+          <Typography
+            variant="body2"
+            align="center"
+            sx={{
+              color: '#666',
+              mb: 4,
+            }}
+          >
+            Sign in to continue
+          </Typography>
+          <form onSubmit={handleLogin}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: '12px',
+                  backgroundColor: '#f9f9f9',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#fff',
+                    boxShadow: '0 0 0 2px rgba(110, 142, 251, 0.1)',
+                  },
+                  '&.Mui-focused': {
+                    boxShadow: '0 0 0 2px rgba(110, 142, 251, 0.3)',
+                  },
+                },
+                '& .MuiInputLabel-root': {
+                  color: '#666',
+                  fontWeight: 500,
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: '#6e8efb',
+                },
+              }}
+            />
+            <TextField
+              label="Password"
+              type="password"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: '12px',
+                  backgroundColor: '#f9f9f9',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: '#fff',
+                    boxShadow: '0 0 0 2px rgba(110, 142, 251, 0.1)',
+                  },
+                  '&.Mui-focused': {
+                    boxShadow: '0 0 0 2px rgba(110, 142, 251, 0.3)',
+                  },
+                },
+                '& .MuiInputLabel-root': {
+                  color: '#666',
+                  fontWeight: 500,
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: '#6e8efb',
+                },
+              }}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              sx={{
+                mt: 3,
+                py: 1.5,
+                borderRadius: '12px',
+                background: 'linear-gradient(90deg, #6e8efb 0%, #a777e3 100%)',
+                textTransform: 'none',
+                fontSize: '1rem',
+                fontWeight: 600,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 4px 15px rgba(110, 142, 251, 0.3)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  background: 'linear-gradient(90deg, #5f7de8 0%, #9466d0 100%)',
+                  boxShadow: '0 6px 20px rgba(110, 142, 251, 0.5)',
+                  transform: 'translateY(-2px)',
+                },
+              }}
+            >
+              <LoginIcon sx={{ mr: 1 }} />
+              Sign In
+            </Button>
+          </form>
+        </Box>
+      </Fade>
     </Container>
   );
 }
