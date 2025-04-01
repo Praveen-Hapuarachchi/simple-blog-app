@@ -54,6 +54,7 @@ function SignupForm() {
         justifyContent: 'center',
         background: 'linear-gradient(135deg, #6e8efb 0%, #a777e3 100%)',
         padding: 2,
+        paddingTop: '80px', // Added to push the form below the navbar
       }}
     >
       <Fade in timeout={1000}>
