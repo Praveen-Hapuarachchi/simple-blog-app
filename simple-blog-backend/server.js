@@ -14,7 +14,7 @@ const app = express();
 
 // Allow requests from the frontend (localhost:3000)
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://159.89.175.60', 'http://159.89.175.60:3000','http://209.38.173.211'],
+  origin: ['http://localhost:3000', 'http://159.89.175.60', 'http://159.89.175.60:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
 }));

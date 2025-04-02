@@ -18,7 +18,7 @@ spec:
       - name: simple-blog-backend
         image: praveenlichchavi/simple-blog-backend:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 5000  # Confirm this matches your backend
         env:
         - name: MONGO_URI
           value: "mongodb://mongo-service:27017/simple_blog_backend"
