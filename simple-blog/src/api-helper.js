@@ -1,6 +1,6 @@
 // export const base_url = 'http://localhost:5000/api';
-// export const base_url = 'http://159.89.175.60/api';
-export const base_url = 'http://209.38.173.211/api'; // Relative path, proxied by Nginx
+export const base_url = 'http://159.89.175.60/api';
+// export const base_url = 'http://209.38.173.211/api'; // Relative path, proxied by Nginx
 
 export const signupUser = async (userData) => {
   try {
