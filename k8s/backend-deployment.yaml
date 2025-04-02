@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-blog-backend
+  labels:
+    app: simple-blog-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-blog-backend
+  template:
+    metadata:
+      labels:
+        app: simple-blog-backend
+    spec:
+      containers:
+      - name: simple-blog-backend
+        image: praveenlichchavi/simple-blog-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGO_URI
+          value: "mongodb://mongo-service:27017/simple_blog_backend"

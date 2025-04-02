@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-blog
+  labels:
+    app: simple-blog
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-blog
+  template:
+    metadata:
+      labels:
+        app: simple-blog
+    spec:
+      containers:
+      - name: simple-blog
+        image: praveenlichchavi/simple-blog:latest
+        ports:
+        - containerPort: 80
