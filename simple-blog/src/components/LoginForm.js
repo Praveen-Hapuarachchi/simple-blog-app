@@ -43,7 +43,7 @@ function LoginForm() {
           sx={{
             width: '100%',
             maxWidth: 400,
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            backgroundColor: 'rgba(111, 10, 212, 0.96)',
             borderRadius: 3,
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
             padding: 4,
@@ -72,7 +72,7 @@ function LoginForm() {
             variant="body2"
             align="center"
             sx={{
-              color: '#666',
+              color: '#333',
               mb: 4,
             }}
           >
@@ -146,18 +146,18 @@ function LoginForm() {
                 mt: 3,
                 py: 1.5,
                 borderRadius: '12px',
-                background: 'linear-gradient(90deg, #6e8efb 0%, #a777e3 100%)',
+                background: 'linear-gradient(90deg, #f44336 0%, #d32f2f 100%)', // Changed to red gradient
                 textTransform: 'none',
                 fontSize: '1rem',
                 fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 4px 15px rgba(110, 142, 251, 0.3)',
+                boxShadow: '0 4px 15px rgba(244, 67, 54, 0.3)', // Matching red shadow
                 transition: 'all 0.3s ease',
                 '&:hover': {
-                  background: 'linear-gradient(90deg, #5f7de8 0%, #9466d0 100%)',
-                  boxShadow: '0 6px 20px rgba(110, 142, 251, 0.5)',
+                  background: 'linear-gradient(90deg, #e53935 0%, #c62828 100%)', // Darker red on hover
+                  boxShadow: '0 6px 20px rgba(244, 67, 54, 0.5)',
                   transform: 'translateY(-2px)',
                 },
               }}
